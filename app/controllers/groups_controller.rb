@@ -49,7 +49,7 @@ def join
 
   if !current_user.is_member_of?(@group)
     current_user.join!(@group)
-    flash[notice] = "加入本讨论版成功! "
+    flash[:notice] = "加入本讨论版成功! "
   else
     flash[:warning] = "你已经是本讨论版的成员了！"
   end
@@ -66,6 +66,7 @@ def quit
   else
     flash[:warning] = "你已不是本讨论版成员，怎么退出 XD"
   end
+  redirect_to group_path(@group)
 end
 private
 
